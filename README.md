@@ -39,8 +39,8 @@ python /data/vlm_ood_classifier.py
 
 Outputs are grouped into two categories:
 
-.success: VLM predicts correctly
-.fail: VLM predicts incorrectly
+- success: VLM predicts correctly
+- fail: VLM predicts incorrectly
 
 These labels are used as supervision for downstream failure-aware learning.
 
