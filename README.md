@@ -26,6 +26,8 @@ python /data/attack.py
 
 This step produces adversarial examples that will later be evaluated by VLM classifiers.
 
+And all of the OOD datasets, you can download from this link https://zenodo.org/records/2535967 .
+
 ---
 
 ### 3. Split Samples into VLM success / fail
