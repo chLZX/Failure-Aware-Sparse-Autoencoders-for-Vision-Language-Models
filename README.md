@@ -65,7 +65,7 @@ nohup python /home/lzx/patchsae/train_error_mlp_onlinetopksae_training.py \
 
 ---
 
-Summary
+### 5. Summary
 In short, our pipeline is:
 
 1. Dataset preparation
