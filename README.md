@@ -1,6 +1,6 @@
-## End-to-End Pipeline: Failure-Aware Prediction for VLMs
+## Failure-Aware SAE for VLMs
 
-This project follows a three-stage pipeline to build a **failure-aware prediction head** on top of CLIP-based features.
+This project build a Failure-aware SAE for VLMs, which can improve the robustness of VLM.
 
 
 
@@ -24,23 +24,23 @@ Use the black-box patch attack script to generate attacked images:
 python /data/attack.py
 ```
 
-This step produces adversarial examples that will later be evaluated by CLIP-based classifiers.
+This step produces adversarial examples that will later be evaluated by VLM classifiers.
 
 ---
 
-### 3. Split Samples into CLIP success / fail
+### 3. Split Samples into VLM success / fail
 
-Run CLIP classifiers to separate images based on recognition outcomes:
+Run VLM classifiers to separate images based on recognition outcomes:
 
 ```bash
-python /data/clip_adv_id_classifier.py
-python /data/clip_ood_classifier.py
+python /data/vlm_adv_id_classifier.py
+python /data/vlm_ood_classifier.py
 ```
 
 Outputs are grouped into two categories:
 
-.success: CLIP predicts correctly
-.fail: CLIP predicts incorrectly
+.success: VLM predicts correctly
+.fail: VLM predicts incorrectly
 
 These labels are used as supervision for downstream failure-aware learning.
 
@@ -70,5 +70,5 @@ In short, our pipeline is:
 
 1. Dataset preparation
 2. Adversarial data generation
-3. CLIP-based fail/success split
+3. VLM fail/success split
 4. Failure-aware head training
