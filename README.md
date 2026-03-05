@@ -22,8 +22,11 @@ Use the black-box patch attack script to generate attacked images:
 
 ```bash
 python /data/attack.py
+```
 
 This step produces adversarial examples that will later be evaluated by CLIP-based classifiers.
+
+---
 
 ### 3. Split Samples into CLIP success / fail
 
@@ -32,6 +35,7 @@ Run CLIP classifiers to separate images based on recognition outcomes:
 ```bash
 python /data/clip_adv_id_classifier.py
 python /data/clip_ood_classifier.py
+```
 
 Outputs are grouped into two categories:
 
@@ -39,6 +43,8 @@ Outputs are grouped into two categories:
 .fail: CLIP predicts incorrectly
 
 These labels are used as supervision for downstream failure-aware learning.
+
+---
 
 ### 4. Train the Failure-Aware Prediction Head
 
@@ -55,6 +61,9 @@ nohup python /home/lzx/patchsae/train_error_mlp_onlinetopksae_training.py \
   --lambda 0.5 \
   --seed 0 \
   --device cuda:0 
+```
+
+---
 
 Summary
 In short, our pipeline is:
